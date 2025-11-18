@@ -1,0 +1,24 @@
+{
+  "name": "myapp",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+  "start": "cross-env NODE_ENV=production node server.js",
+  "dev": "cross-env NODE_ENV=development concurrently \"nodemon server.js\" \"npm run watch-client\"",
+  "watch-client": "node scripts/watch-client.js",
+  "build": "npm run prebuild && cross-env NODE_ENV=production node scripts/build-client.js && npm run postbuild",
+  "prebuild": "npm run lint",
+  "postbuild": "echo \"Build finished at $(date)\"",
+  "lint": "echo \"linting... (simulated)\"",
+  "test": "node test/test.js"
+},
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "concurrently": "^9.2.1",
+    "cross-env": "^10.1.0",
+    "nodemon": "^3.1.11"
+  }
+}
